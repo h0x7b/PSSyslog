@@ -115,6 +115,7 @@ function Format-SyslogSDName
 	return $outputString
 }
 
+
 function Send-SyslogMessage
 {
 	<#
@@ -221,6 +222,12 @@ function Send-SyslogMessage
 
 		try
 		{
+
+			if ($bytes.Length -gt 1472) #with IP and other headers it migh be fragmented 
+			{
+				Write-Warning "The message is too big and might not be received"
+			}
+
 			$sentBytes = $SyslogClient.UdpSocket.Send($bytes, $bytes.Length);
 		}
 		catch
@@ -236,4 +243,3 @@ function Send-SyslogMessage
 	}
 
 }
-
