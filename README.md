@@ -12,7 +12,8 @@ Features and limitations
  
 How to use it ?
 ===============
-You can just dot source the script in your own script and then usage is like this :
+You can just dot source the script in your own script and then usage is like this:
+
 $syslogClient = Create-SyslogClient "yourserver" 514
 
 "Simple message" | Send-SyslogMessage $syslogClient user Information
