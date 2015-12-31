@@ -14,9 +14,14 @@ How to use it ?
 ===============
 You can just dot source the script in your own script and then usage is like this :
 $syslogClient = Create-SyslogClient "yourserver" 514
-"Simple message" | Send-SyslogMessage $syslogClient user Information 
+
+"Simple message" | Send-SyslogMessage $syslogClient user Information
+
 "Simple message with MsgId" | Send-SyslogMessage $syslogClient user Information -MsgId "TEST"
-"Message with structured data" | Send-SyslogMessage $syslogClient user Information -MsgId "TEST" -StructuredData @{"test"= @{"a"="1"; "b"="1"}; "test2" = @{"a"="2"; "b"="3"}} -Verbos
+
+"Message with structured data" | Send-SyslogMessage $syslogClient user Information -MsgId "TEST" -StructuredData @{"test"= @{"a"="1"; "b"="1"}; "test2" = @{"a"="2"; "b"="3"}} -Verbose
+
+
  
 
 
